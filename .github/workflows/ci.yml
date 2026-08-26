@@ -40,5 +40,7 @@ jobs:
       - run: docker compose build
       - run: docker compose up --detach --wait --wait-timeout 180
       - run: curl --fail --retry 10 --retry-delay 2 --retry-all-errors http://localhost:3003/api/health
+      - if: failure()
+        run: docker compose logs
       - if: always()
         run: docker compose down --volumes
