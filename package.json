@@ -1,0 +1,40 @@
+{
+  "name": "launchkit-ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3003",
+    "build": "next build --webpack",
+    "start": "next start -p 3003",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test server/tests/*.test.ts",
+    "test:e2e": "playwright test",
+    "capture:portfolio": "node scripts/capture-portfolio.mjs",
+    "worker": "tsx server/worker.ts",
+    "validate": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "pg": "8.23.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "redis": "6.2.1",
+    "stripe": "22.5.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.62.1",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.15.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.3.3",
+    "tsx": "4.23.12",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
